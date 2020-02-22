@@ -22,6 +22,8 @@ namespace WebApiCalculator.Controllers
         [HttpPost]
         public IActionResult PerformCalculation(CalculationViewModel model)
         {
+            model.Result = "123";
+
             return View("Index", model);
         }
 

@@ -20,9 +20,16 @@
 
     @using (Html.BeginForm("PerformCalculation", "Home", FormMethod.Post))
     {
-        @Html.TextBoxFor(m => m.Expression, new { @class = "form control" });
-        @Html.ValidationMessageFor(m => m.Expression);
+        <div class="form-group">
+            @Html.LabelFor(m => m.Expression)
+            @Html.TextBoxFor(m => m.Expression, new { @class = "form control" })
+            @Html.ValidationMessageFor(m => m.Expression)
+            <button type="submit">Submit</button>
+        </div>
 
-        <button type="submit">Submit</button>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Result)
+            @Model.Result
+        </div>
     }
 </div>

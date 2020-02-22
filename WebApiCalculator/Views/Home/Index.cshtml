@@ -1,8 +1,28 @@
-﻿@{
+﻿@model CalculationViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div>
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>This is a simple interface for an API that evaluates an expression that you submit.</p>
+    <p>Only expressions involving addition/subtraction and multiplication/division of integers are permitted:</p>
+    <ul>
+        <li>0-9 => Use the digits</li>
+        <li>+ => Use the '+' operator to perform an addition operation</li>
+        <li>- => Use the '-' operator to perform an subtraction operation</li>
+        <li>* => Use the '*' operator to perform an mulitplication operation</li>
+        <li>/ => Use the '/' operator to perform an division operation</li>
+    </ul>
+
+    <p>Any characters other than the above - including whitespace - are not permitted</p>
+
+    @using (Html.BeginForm("PerformCalculation", "Home", FormMethod.Post))
+    {
+        Html.TextBoxFor(m => m.Expression, new { @class = "form control" });
+        Html.ValidationMessageFor(m => m.Expression);
+
+        <button type="submit">Submit</button>
+    }
 </div>

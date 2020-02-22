@@ -20,8 +20,8 @@
 
     @using (Html.BeginForm("PerformCalculation", "Home", FormMethod.Post))
     {
-        Html.TextBoxFor(m => m.Expression, new { @class = "form control" });
-        Html.ValidationMessageFor(m => m.Expression);
+        @Html.TextBoxFor(m => m.Expression, new { @class = "form control" });
+        @Html.ValidationMessageFor(m => m.Expression);
 
         <button type="submit">Submit</button>
     }

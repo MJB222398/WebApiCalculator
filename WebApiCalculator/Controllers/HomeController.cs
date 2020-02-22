@@ -16,7 +16,13 @@ namespace WebApiCalculator.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new CalculationViewModel());
+        }
+
+        [HttpPost]
+        public IActionResult PerformCalculation(CalculationViewModel model)
+        {
+            return View("Index", model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,5 +1,3 @@
-using System;
-
 namespace WebApiCalculator.Models
 {
     public class ErrorViewModel

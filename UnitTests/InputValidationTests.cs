@@ -37,5 +37,47 @@ namespace UnitTests
             Assert.IsNotEmpty(errors);
             Assert.That(string.IsNullOrWhiteSpace(viewModel.Result));
         }
+
+        [Test]
+        public void GivenWhiteSpaceInputErrorIsThrownAndNoResultGiven()
+        {
+            var viewModel = new CalculationViewModel()
+            {
+                Expression = "1 + 3"
+            };
+
+            var errors = viewModel.Validate();
+
+            Assert.IsNotEmpty(errors);
+            Assert.That(string.IsNullOrWhiteSpace(viewModel.Result));
+        }
+
+        [Test]
+        public void GivenDecimalInputErrorIsThrownAndNoResultGiven()
+        {
+            var viewModel = new CalculationViewModel()
+            {
+                Expression = "1.3+4"
+            };
+
+            var errors = viewModel.Validate();
+
+            Assert.IsNotEmpty(errors);
+            Assert.That(string.IsNullOrWhiteSpace(viewModel.Result));
+        }
+
+        [Test]
+        public void GivenBracketsInputErrorIsThrownAndNoResultGiven()
+        {
+            var viewModel = new CalculationViewModel()
+            {
+                Expression = "2*(2+8)"
+            };
+
+            var errors = viewModel.Validate();
+
+            Assert.IsNotEmpty(errors);
+            Assert.That(string.IsNullOrWhiteSpace(viewModel.Result));
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using WebApiCalculator.Resources;
 
@@ -12,9 +12,9 @@ namespace WebApiCalculator.Models
         [Display(Name = "Result: ")]
         public string Result { get; set; }
 
-        public NameValueCollection Validate()
+        public Dictionary<string, string> Validate()
         {
-            var errors = new NameValueCollection();
+            var errors = new Dictionary<string, string>();
 
             if (string.IsNullOrWhiteSpace(Expression))
             {

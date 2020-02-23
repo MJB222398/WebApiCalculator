@@ -22,9 +22,17 @@ namespace WebApiCalculator.Controllers
         [HttpPost]
         public IActionResult PerformCalculation(CalculationViewModel model)
         {
-            model.Result = "123";
-
             var errors = model.Validate();
+
+            if (errors.Count > 0)
+            {
+                foreach (var error in errors)
+                    ModelState.AddModelError(error.Key, error.Value);
+
+                return View("Index", model);
+            }
+
+            model.Result = "123";
 
             return View("Index", model);
         }

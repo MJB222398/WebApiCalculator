@@ -24,7 +24,7 @@ namespace WebApiCalculator.Controllers
         {
             model.Result = "123";
 
-            model.Validate(ModelState);
+            var errors = model.Validate();
 
             return View("Index", model);
         }

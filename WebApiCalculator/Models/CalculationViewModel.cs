@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using System.Collections.Specialized;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApiCalculator.Models
@@ -11,10 +11,14 @@ namespace WebApiCalculator.Models
         [Display(Name = "Result: ")]
         public string Result { get; set; }
 
-        public void Validate(ModelStateDictionary modelState)
+        public NameValueCollection Validate()
         {
+            var errors = new NameValueCollection();
+
             if (string.IsNullOrWhiteSpace(Expression))
-                modelState.AddModelError(nameof(Expression), "You must enter an expression to evaluate");
+                errors.Add(nameof(Expression), "You must enter an expression to evaluate");
+
+            return errors;
         }
     }
 }

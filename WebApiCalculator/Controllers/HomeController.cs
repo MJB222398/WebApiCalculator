@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
+using System.Linq;
 using WebApiCalculator.Models;
+using WebApiCalculator.Resources;
 
 namespace WebApiCalculator.Controllers
 {
@@ -39,7 +42,13 @@ namespace WebApiCalculator.Controllers
 
         private decimal GetExpressionResult(string expression)
         {
-            return 0M;
+            var operandList = expression.Split(new char[] { '+', '-', '*', '/' });
+            var operatorList = expression.Where(x => RegExPatterns.OperatorPattern.IsMatch(x.ToString())).Select(x => x.ToString()).ToList();
+
+            if (operandList.Length != operatorList.Count + 1)
+                throw new Exception("Something went wrong!");
+
+            return 156.34M;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

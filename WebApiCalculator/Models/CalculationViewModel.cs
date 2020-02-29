@@ -10,7 +10,7 @@ namespace WebApiCalculator.Models
         public string Expression { get; set; }
 
         [Display(Name = "Result: ")]
-        public string Result { get; set; }
+        public decimal Result { get; set; }
 
         public Dictionary<string, string> Validate()
         {

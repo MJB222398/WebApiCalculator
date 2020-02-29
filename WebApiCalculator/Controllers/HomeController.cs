@@ -32,9 +32,14 @@ namespace WebApiCalculator.Controllers
                 return View("Index", model);
             }
 
-            model.Result = "123";
+            model.Result = GetExpressionResult(model.Expression);
 
             return View("Index", model);
+        }
+
+        private decimal GetExpressionResult(string expression)
+        {
+            return 0M;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

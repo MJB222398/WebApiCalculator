@@ -114,11 +114,37 @@ namespace UnitTests
             Assert.IsNotEmpty(errors);
         }
 
+        [Test]
+        public void GivenInputHasNoOperatorErrorIsThrownAndNoResultGiven()
+        {
+            var viewModel = new CalculationViewModel()
+            {
+                Expression = "123"
+            };
+
+            var errors = viewModel.Validate();
+
+            Assert.IsNotEmpty(errors);
+        }
+
+        [Test]
+        public void GivenInputHasConsecutiveOperatorsErrorIsThrownAndNoResultGiven()
+        {
+            var viewModel = new CalculationViewModel()
+            {
+                Expression = "12+-67"
+            };
+
+            var errors = viewModel.Validate();
+
+            Assert.IsNotEmpty(errors);
+        }
+
         [TestCase("782*2+890")]
         [TestCase("12*2+890/2")]
-        [TestCase("1")]
-        [TestCase("31")]
-        [TestCase("782")]
+        [TestCase("1+2+3-4/5*565")]
+        [TestCase("31*5644+1+1")]
+        [TestCase("782*6732832")]
         [TestCase("2+7")]
         public void GivenValidInputErrorIsNotThrownAndResultIsGiven(string expressionInput)
         {

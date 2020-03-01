@@ -6,6 +6,14 @@ namespace WebApiCalculator.Resources
     {
         public static Regex ValidInputPattern = new Regex("^(?:(?:([0-9]+)([\\+\\-\\/\\*]))+)([0-9]+)$");
 
-        public static Regex OperatorPattern = new Regex("^[\\+\\-\\/\\*]$");
+        public static Regex HasOperatorPattern = new Regex("^.*[\\+\\-\\/\\*].*$");
+
+        public static Regex MultiplicationCalculationPattern = new Regex("^.*?(\\d+)(\\*)(\\d+).*?$");
+
+        public static Regex DivisionCalculationPattern = new Regex("^.*?(\\d+)(\\/)(\\d+).*?$");
+
+        public static Regex AdditionCalculationPattern = new Regex("^.*?(\\d+)(\\+)(\\d+).*?$");
+
+        public static Regex SubtractionCalculationPattern = new Regex("^.*?(\\d+)(\\-)(\\d+).*?$");
     }
 }

@@ -40,15 +40,27 @@ namespace WebApiCalculator.Controllers
             return View("Index", model);
         }
 
-        private decimal GetExpressionResult(string expression)
+        private string GetExpressionResult(string expression)
         {
-            var operandList = expression.Split(new char[] { '+', '-', '*', '/' });
-            var operatorList = expression.Where(x => RegExPatterns.OperatorPattern.IsMatch(x.ToString())).Select(x => x.ToString()).ToList();
+            while (RegExPatterns.HasOperatorPattern.IsMatch(expression))
+                expression = PerformHighestPriorityOperation(expression);
 
-            if (operandList.Length != operatorList.Count + 1)
-                throw new Exception("Something went wrong!");
+            return expression;
+        }
 
-            return 156.34M;
+        private string PerformHighestPriorityOperation(string expression)
+        {
+            var multiplicationCalculation = RegExPatterns.MultiplicationCalculationPattern.Match(expression);
+            var divisionCalculation = RegExPatterns.DivisionCalculationPattern.Match(expression);
+            var additionCalculation = RegExPatterns.AdditionCalculationPattern.Match(expression);
+            var subtractionCalculation = RegExPatterns.SubtractionCalculationPattern.Match(expression);
+
+            if (multiplicationCalculation != null)
+            {
+                var match = multiplicationCalculation;
+            }
+
+            return expression;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

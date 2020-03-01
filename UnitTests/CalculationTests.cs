@@ -33,5 +33,13 @@ namespace UnitTests
 
             Assert.AreEqual(calculationResult, "48");
         }
+
+        [Test]
+        public void GivenDivisionCalculationCorrectResultIsReturned()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("12/4");
+
+            Assert.AreEqual(calculationResult, "3");
+        }
     }
 }

@@ -8,8 +8,15 @@ namespace WebApiCalculator.Helpers
     {
         public static string GetExpressionResult(string expression)
         {
-            while (RegExPatterns.HasOperationToPerformPattern.IsMatch(expression))
-                expression = PerformHighestPriorityOperation(expression);
+            try
+            {
+                while (RegExPatterns.HasOperationToPerformPattern.IsMatch(expression))
+                    expression = PerformHighestPriorityOperation(expression);
+            }
+            catch (DivideByZeroException)
+            {
+                expression = "Invalid expression - there was an attempt to divide by zero";
+            }
 
             return expression;
         }

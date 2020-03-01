@@ -17,5 +17,13 @@ namespace UnitTests
 
             Assert.AreEqual(calculationResult, "4");
         }
+
+        [Test]
+        public void GivenSubtractionCalculationCorrectResultIsReturned()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("44-3");
+
+            Assert.AreEqual(calculationResult, "41");
+        }
     }
 }

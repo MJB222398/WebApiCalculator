@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using WebApiCalculator.Helpers;
 
 namespace UnitTests
 {
@@ -10,9 +11,11 @@ namespace UnitTests
         }
 
         [Test]
-        public void Test()
+        public void GivenAdditionCalculationCorrectResultIsReturned()
         {
-            Assert.IsTrue(true);
+            var calculationResult = CalculationHelper.GetExpressionResult("1+3");
+
+            Assert.Equals(calculationResult, "4");
         }
     }
 }

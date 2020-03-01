@@ -73,5 +73,13 @@ namespace UnitTests
 
             Assert.AreEqual(calculationResult, "1");
         }
+
+        [Test]
+        public void GivenCalculationGivingNegativeResultCorrectResultIsReturned()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("12-25");
+
+            Assert.AreEqual(calculationResult, "-13");
+        }
     }
 }

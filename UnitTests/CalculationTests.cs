@@ -15,7 +15,7 @@ namespace UnitTests
         {
             var calculationResult = CalculationHelper.GetExpressionResult("1+3");
 
-            Assert.Equals(calculationResult, "4");
+            Assert.AreEqual(calculationResult, "4");
         }
     }
 }

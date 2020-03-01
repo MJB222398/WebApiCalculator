@@ -22,6 +22,7 @@ namespace WebApiCalculator.Helpers
             if (multiplicationCalculation.Success && multiplicationCalculation.Groups.Count > 3)
             {
                 result = PerformOperation(multiplicationCalculation, OperationType.Multiplication);
+                expression = UpdateExpression(expression, multiplicationCalculation, result);
             }
             else
             {
@@ -29,6 +30,7 @@ namespace WebApiCalculator.Helpers
                 if (divisionCalculation.Success && divisionCalculation.Groups.Count > 3)
                 {
                     result = PerformOperation(divisionCalculation, OperationType.Division);
+                    expression = UpdateExpression(expression, divisionCalculation, result);
                 }
                 else
                 {
@@ -36,6 +38,7 @@ namespace WebApiCalculator.Helpers
                     if (additionCalculation.Success && additionCalculation.Groups.Count > 3)
                     {
                         result = PerformOperation(additionCalculation, OperationType.Addition);
+                        expression = UpdateExpression(expression, additionCalculation, result);
                     }
                     else
                     {
@@ -43,6 +46,7 @@ namespace WebApiCalculator.Helpers
                         if (subtractionCalculation.Success && subtractionCalculation.Groups.Count > 3)
                         {
                             result = PerformOperation(subtractionCalculation, OperationType.Subtraction);
+                            expression = UpdateExpression(expression, subtractionCalculation, result);
                         }
                     }
                 }
@@ -79,6 +83,11 @@ namespace WebApiCalculator.Helpers
             }
 
             return result;
+        }
+
+        private static string UpdateExpression(string expression, Match operation, decimal result)
+        {
+            return expression.Replace(operation.Captures[0].Value, result.ToString());
         }
     }
 }

@@ -14,6 +14,6 @@ namespace WebApiCalculator.Resources
 
         public static Regex AdditionCalculationPattern = new Regex("^.*?((\\d+\\.?\\d*)(\\+)(\\d+\\.?\\d*)).*?$");
 
-        public static Regex SubtractionCalculationPattern = new Regex("^.*?((\\d+\\.?\\d*)(\\-)(\\d+\\.?\\d*)).*?$");
+        public static Regex SubtractionCalculationPattern = new Regex("^.*?((\\-?\\d+\\.?\\d*)(\\-)(\\d+\\.?\\d*)).*?$");
     }
 }

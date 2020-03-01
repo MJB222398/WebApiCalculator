@@ -105,5 +105,13 @@ namespace UnitTests
 
             Assert.AreEqual("2.5", calculationResult);
         }
+
+        [Test]
+        public void GivenCalculationInvolvingDecimalOperandCorrectResultIsReturned()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("10/4+3");
+
+            Assert.AreEqual("5.5", calculationResult);
+        }
     }
 }

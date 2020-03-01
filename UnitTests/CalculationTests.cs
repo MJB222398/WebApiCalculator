@@ -113,5 +113,16 @@ namespace UnitTests
 
             Assert.AreEqual("5.5", calculationResult);
         }
+
+        [TestCase("12*98/6+4444-12", "4628")]
+        [TestCase("1*2*3*4*0", "0")]
+        [TestCase("0+0+0+0+0-0", "0")]
+        [TestCase("1-2-3-4-5-6-7", "-26")]
+        public void GivenCalculationCorrectResultIsReturned(string expressionInput, string expectedResult)
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult(expressionInput);
+
+            Assert.AreEqual(expectedResult, calculationResult);
+        }
     }
 }

@@ -89,5 +89,13 @@ namespace UnitTests
 
             Assert.AreEqual(calculationResult, "Invalid expression - there was an attempt to divide by zero");
         }
+
+        [Test]
+        public void GivenCalculationWithMultipleTypesOfOperatorCorrectResultIsReturned()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("1+10*4*2-8+0");
+
+            Assert.AreEqual(calculationResult, "73");
+        }
     }
 }

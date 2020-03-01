@@ -64,10 +64,10 @@ namespace WebApiCalculator.Helpers
 
         private static decimal PerformOperation(Match match, OperationType operationType)
         {
-            if (!int.TryParse(match.Groups[2].Value, out int leftHandOperand))
+            if (!decimal.TryParse(match.Groups[2].Value, out decimal leftHandOperand))
                 throw new Exception($"{nameof(leftHandOperand)} not found");
 
-            if (!int.TryParse(match.Groups[4].Value, out int rightHandOperand))
+            if (!decimal.TryParse(match.Groups[4].Value, out decimal rightHandOperand))
                 throw new Exception($"{nameof(rightHandOperand)} not found");
 
             decimal result;

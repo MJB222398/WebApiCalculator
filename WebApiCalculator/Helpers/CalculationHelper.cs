@@ -8,7 +8,7 @@ namespace WebApiCalculator.Helpers
     {
         public static string GetExpressionResult(string expression)
         {
-            while (RegExPatterns.HasOperatorPattern.IsMatch(expression))
+            while (RegExPatterns.HasOperationToPerformPattern.IsMatch(expression))
                 expression = PerformHighestPriorityOperation(expression);
 
             return expression;

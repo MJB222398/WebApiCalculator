@@ -145,6 +145,7 @@ namespace UnitTests
         [TestCase("1+2+3-4/5*565")]
         [TestCase("31*5644+1+1")]
         [TestCase("782*6732832")]
+        [TestCase("782*6732*23832*999")]
         [TestCase("2+7")]
         public void GivenValidInputErrorIsNotThrownAndResultIsGiven(string expressionInput)
         {

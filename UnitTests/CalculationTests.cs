@@ -81,5 +81,13 @@ namespace UnitTests
 
             Assert.AreEqual(calculationResult, "-13");
         }
+
+        [Test]
+        public void GivenCalculationContainingDivideByZeroAnErrorIsShown()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("12+39*2/0");
+
+            Assert.AreEqual(calculationResult, "Invalid expression - there was an attempt to divide by zero");
+        }
     }
 }

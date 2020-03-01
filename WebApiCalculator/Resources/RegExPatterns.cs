@@ -8,12 +8,12 @@ namespace WebApiCalculator.Resources
 
         public static Regex HasOperatorPattern = new Regex("^.*[\\+\\-\\/\\*].*$");
 
-        public static Regex MultiplicationCalculationPattern = new Regex("^.*?(\\d+)(\\*)(\\d+).*?$");
+        public static Regex MultiplicationCalculationPattern = new Regex("^.*?((\\d+)(\\*)(\\d+)).*?$");
 
-        public static Regex DivisionCalculationPattern = new Regex("^.*?(\\d+)(\\/)(\\d+).*?$");
+        public static Regex DivisionCalculationPattern = new Regex("^.*?((\\d+)(\\/)(\\d+)).*?$");
 
-        public static Regex AdditionCalculationPattern = new Regex("^.*?(\\d+)(\\+)(\\d+).*?$");
+        public static Regex AdditionCalculationPattern = new Regex("^.*?((\\d+)(\\+)(\\d+)).*?$");
 
-        public static Regex SubtractionCalculationPattern = new Regex("^.*?(\\d+)(\\-)(\\d+).*?$");
+        public static Regex SubtractionCalculationPattern = new Regex("^.*?((\\d+)(\\-)(\\d+)).*?$");
     }
 }

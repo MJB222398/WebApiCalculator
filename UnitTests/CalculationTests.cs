@@ -25,5 +25,13 @@ namespace UnitTests
 
             Assert.AreEqual(calculationResult, "41");
         }
+
+        [Test]
+        public void GivenMultiplicationCalculationCorrectResultIsReturned()
+        {
+            var calculationResult = CalculationHelper.GetExpressionResult("12*4");
+
+            Assert.AreEqual(calculationResult, "48");
+        }
     }
 }

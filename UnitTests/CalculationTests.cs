@@ -118,6 +118,7 @@ namespace UnitTests
         [TestCase("1*2*3*4*0", "0")]
         [TestCase("0+0+0+0+0-0", "0")]
         [TestCase("1-2-3-4-5-6-7", "-26")]
+        [TestCase("10/4-16/5", "-0.7")]
         public void GivenCalculationCorrectResultIsReturned(string expressionInput, string expectedResult)
         {
             var calculationResult = CalculationHelper.GetExpressionResult(expressionInput);
